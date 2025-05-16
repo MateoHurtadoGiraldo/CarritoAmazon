@@ -17,4 +17,14 @@ public class AmazonSearchSteps {
     public void buscarProductoEspecifico(String busqueda){
         amazon.buscarProducto(busqueda);
     }
+
+    @And("^navega a la segunda pagina$")
+    public void navegarPagina2(){
+        amazon.irPagina();
+    }
+
+    @And("^selecciona el tercer articulo$")
+    public void seleccionarArticulo3(){
+        amazon.clicarProducto3();
+    }
 }

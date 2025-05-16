@@ -36,34 +36,41 @@ import org.openqa.selenium.support.ui.WebDriverWait;
     }
 
     // Metodo para hallar un elemento por su selector XPath
-    private WebElement EncontrarElementoXpath(String localizador){
+    private WebElement encontrarElementoXpath(String localizador){
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(localizador)));
     }
 
     // Metodo para hallar un elemento por su selector Name
-    private WebElement EncontrarElementoName(String localizador){
+    private WebElement encontrarElementoName(String localizador){
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.name(localizador)));
     }
     // Metodo para hallar un elemento por su selector Id
-    private WebElement EncontrarElementoId(String localizador){
+    private WebElement encontrarElementoId(String localizador){
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.id(localizador)));
     }
 
-    // Clica algun elemento con selector Id
+    // Clicar algun elemento con selector Id
     public void clicarElementoId(String localizador){
-        EncontrarElementoId(localizador).click();
+        encontrarElementoId(localizador).click();
     }
 
-    // Clica algun elemento con selector XPath
+    // Clicar algun elemento con selector XPath
     public void clicarElementoXpath(String localizador){
-        EncontrarElementoXpath(localizador).click();
+        encontrarElementoXpath(localizador).click();
     }
 
     // Escribe en un campo de texto
     public void escribir(String localizador, String busqueda){
-        EncontrarElementoName(localizador).clear();
-        EncontrarElementoName(localizador).sendKeys(busqueda);
+        encontrarElementoName(localizador).clear();
+        encontrarElementoName(localizador).sendKeys(busqueda);
     }
 
+    // Metodo para ir a la pagina de amazon por su XPath
+    public void clicarPagina(String locator){
+        encontrarElementoXpath(locator).click();;
+    }
+
+
+    
 }
 

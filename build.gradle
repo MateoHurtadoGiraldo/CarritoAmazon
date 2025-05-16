@@ -41,3 +41,8 @@ tasks.named('test') {
     systemProperty "cucumber.options", System.getProperty("cucumber.options")
     systemProperties System.getProperties();
 }
+
+// ✅ Fuerza codificación UTF-8 al compilar
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
