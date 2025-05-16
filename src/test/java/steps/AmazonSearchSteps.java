@@ -12,4 +12,9 @@ public class AmazonSearchSteps {
         amazon.navegarA();
         amazon.espera();
     }
+
+    @And("^busca el producto (.*)$")
+    public void buscarProductoEspecifico(String busqueda){
+        amazon.buscarProducto(busqueda);
+    }
 }

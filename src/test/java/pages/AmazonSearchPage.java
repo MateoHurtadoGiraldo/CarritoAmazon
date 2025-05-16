@@ -2,6 +2,9 @@ package pages;
 
 public class AmazonSearchPage extends BasePage {
 
+    private String barraBusqueda = "field-keywords"; //Selector por Nombre
+    private String btnBuscar = "nav-search-submit-button"; //Selector por ID
+
     //Constructor
     public AmazonSearchPage() {
         super(driver);
@@ -20,4 +23,12 @@ public class AmazonSearchPage extends BasePage {
             e.printStackTrace();
         }
     }
+
+    // Metodo que ingresa datos en la barra de busqueda
+    public void buscarProducto(String busqueda){
+        escribir(barraBusqueda, busqueda);
+        clicarElementoId(btnBuscar);
+    }
+
+    
 }
