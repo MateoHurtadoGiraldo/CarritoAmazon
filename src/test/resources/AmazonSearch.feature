@@ -7,7 +7,7 @@ Feature: Probar la Funcionalidad de Busqueda de Amazon
         And busca el producto <Producto>
         And navega a la segunda pagina
         And selecciona el tercer articulo
-    #     Then el usuario es capaz de agregarlo al carrito de compra
+        Then el usuario es capaz de agregarlo al carrito de compra
         
     Examples: 
         | Producto    |

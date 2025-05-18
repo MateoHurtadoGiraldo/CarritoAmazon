@@ -65,4 +65,45 @@ public void espera() {
 
 ## Estructura del Proyecto
 
+```
+RETO_AMAZON/
+├── src/                          # Código fuente del proyecto.
+│   └── test/                     # Código de pruebas automatizadas.
+│       └── java/                 
+│           ├── pages/                      # Clases que representan las páginas (Page Object Model).
+│           │   ├── AmazonSearchPage.java   # Interacciones y localizadores de la página de búsqueda de Amazon.
+│           │   └── BasePage.java           # Clase base con métodos reutilizables para las páginas.
+│           │
+│           ├── runner/                     # Clase para ejecutar los tests con Cucumber y JUnit.
+│           │   └── RunnerJava.java         # Clase runner principal de Cucumber.
+│           │    
+│           └── steps/                      # Definición de los pasos de Cucumber.
+│               ├── AmazonSearchSteps.java  # Pasos definidos para los escenarios de búsqueda.
+│               └── Hooks.java              # Hooks de configuración y limpieza antes/después de los tests.
+│                                               
+│       └── resources/                      # Recursos como archivos .feature y propiedades de Cucumber.
+│           ├── AmazonSearch.feature        # Escenario BDD para búsqueda en Amazon.
+│           └── cucumber.properties         # Configuración de ejecución de Cucumber.
+│
+├── gradle/                       # Scripts de soporte de Gradle Wrapper.
+├── .gitattributes                # Configuración de atributos de Git para manejar formatos y codificaciones.
+├── .gitignore                    # Archivos y carpetas que Git debe ignorar.
+├── build.gradle                  # Script de construcción con dependencias y configuración del proyecto.
+├── gradlew                       # Script de Gradle Wrapper para sistemas Unix.
+├── gradlew.bat                   # Script de Gradle Wrapper para Windows.
+├── README.md                     # Documentación principal del proyecto.
+└── settings.gradle               # Archivo que define la configuración de los módulos del proyecto.                       
+```
+
 ## Ejecución de Pruebas
+Para ejecutar la prueba se utiliza el siguientes comando: 
+- gradle test
+
+Este comando nos ayuda a ejecutar la prueba desde la cualquier terminal que tengamos disponibles en nuestra equipo (bash, CMD, PowerShell. etc) siempre y cuando estemos en el directorio raiz del proyecto.  
+
+## Reportes 
+Los reportes de las pruebas hechas en este proyecto los podemos ver en la pagina de [Cucumber Reports](https://reports.cucumber.io) que es: https://reports.cucumber.io. 
+Para ver el reporte que se hizo de la prueba solo debe ir a la URL: 
+-  
+
+

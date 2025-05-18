@@ -1,11 +1,21 @@
-# Ignore Gradle project-specific cache directory
-.gradle
+# Gradle
+.gradle/                    # Caché específica del proyecto Gradle
+build/                      # Directorio de salida de compilación de Gradle
 
-# Ignore Gradle build output directory
-build
+# IDEs
+.vscode/                    # Configuraciones de Visual Studio Code
+.idea/                      # Configuraciones de IntelliJ IDEA
 
-.idea/
-*.log
-*.class
-/target/
-bin/
+# Salida de compilación
+/target/                    # Carpeta común en proyectos Java/Maven
+bin/                        # Binarios compilados
+
+# Archivos compilados
+*.class                     # Archivos de clase Java
+
+# Logs
+*.log                       # Archivos de registro
+
+# Archivos del sistema
+.DS_Store                   # macOS
+Thumbs.db                   # Windows

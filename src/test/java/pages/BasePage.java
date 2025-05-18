@@ -2,12 +2,14 @@ package pages;
 
 import java.time.Duration;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
     public class BasePage {
@@ -44,6 +46,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
     private WebElement encontrarElementoName(String localizador){
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.name(localizador)));
     }
+
+    // Metodo para hallar un elemento por su selector CSS
+    private WebElement encontrarElementoCss(String localizador){
+        return wait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(localizador)));
+    }
+
     // Metodo para hallar un elemento por su selector Id
     private WebElement encontrarElementoId(String localizador){
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.id(localizador)));
@@ -70,7 +78,27 @@ import org.openqa.selenium.support.ui.WebDriverWait;
         encontrarElementoXpath(locator).click();;
     }
 
+    // Metodo para selecionar elemento de una lista desplegable (Dropdowns).
+    // Cuando se selecciona de la lista se utiliza el metodo clicar para escoger el numero de productos.
+    // Al final se espera hasta que el boton agregar sea visible y se clica.
+    public void selecionarElementoListaDes(String localizadorLis,String seleProducto, String localiBtnAgregar, Integer elemento){
+        WebElement lista = encontrarElementoCss(localizadorLis);
+        Select listaDesplegable = new Select(lista);
 
-    
+        listaDesplegable.selectByIndex(elemento);
+        clicarElementoXpath(seleProducto);
+
+        WebElement btnAgregarProductoCarrito = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(localiBtnAgregar)));
+        btnAgregarProductoCarrito.click();
+    }
+
+    // Metodo para realizar Validaciones.
+    public void validarTexto(String locator){
+        String textoEsperado= "Agregado al carrito";
+        String textoEncontrado = encontrarElementoXpath(locator).getText();
+
+        Assert.assertEquals(textoEsperado, textoEncontrado);
+        System.out.println("La palabra encontrada fue: "+textoEncontrado);
+    }
 }
 

@@ -4,9 +4,13 @@ public class AmazonSearchPage extends BasePage {
 
     private String barraBusqueda = "field-keywords"; //Selector por Nombre
     private String btnBuscar = "nav-search-submit-button"; //Selector por ID
-    private String btnPagina2 = "//a[@aria-label='Ir a la página 2']";// Selector XPath
-    private String articulo3 = "/html/body/div[1]/div[1]/div[1]/div[1]/div/span[1]/div[1]/div[4]/div/div/span/div/div/div/div[2]/div/div/div[1]/a"; // Selector Absoluto XPath
-
+    private String btnPagina2 = "//a[@aria-label='Ir a la página 2' and @href]";// Selector XPath
+    private String articulo3 = "(//div[@data-cy='title-recipe']/a)[3]"; // Selector Absoluto XPath 
+    private String listaPlegable = "select[name='quantity']";// Selector XPath
+    private String numProductos = "//*[@id=\"quantity_1\"]";
+    private String btnAgregarCarro = "//input[@title='Agregar al Carrito']";
+    private String mensajeValidacion = "//h1[@class='a-size-medium-plus a-color-base sw-atc-text a-text-bold']";
+// 
     //Constructor
     public AmazonSearchPage() {
         super(driver);
@@ -42,4 +46,12 @@ public class AmazonSearchPage extends BasePage {
         clicarElementoXpath(articulo3);
     }
     
+    //Metodo para seleccionar numero de productos
+    public void agragarListaPlegable(){
+        selecionarElementoListaDes(listaPlegable, numProductos, btnAgregarCarro, 1);
+    }
+
+    public void validarMensaje(){
+        validarTexto(mensajeValidacion);
+    }
 }

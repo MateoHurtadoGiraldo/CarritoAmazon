@@ -27,4 +27,10 @@ public class AmazonSearchSteps {
     public void seleccionarArticulo3(){
         amazon.clicarProducto3();
     }
+
+    @Then("^el usuario es capaz de agregarlo al carrito de compra$")
+    public void agregarProductos(){
+        amazon.agragarListaPlegable();
+        amazon.validarMensaje();
+    }
 }
