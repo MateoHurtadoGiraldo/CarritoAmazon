@@ -6,10 +6,10 @@ public class AmazonSearchPage extends BasePage {
     private String btnBuscar = "nav-search-submit-button"; //Selector por ID
     private String btnPagina2 = "//a[@aria-label='Ir a la página 2' and @href]";// Selector XPath
     private String articulo3 = "(//div[@data-cy='title-recipe']/a)[3]"; // Selector Absoluto XPath 
-    private String listaPlegable = "select[name='quantity']";// Selector XPath
-    private String numProductos = "//*[@id=\"quantity_1\"]";
-    private String btnAgregarCarro = "//input[@title='Agregar al Carrito']";
-    private String mensajeValidacion = "//h1[@class='a-size-medium-plus a-color-base sw-atc-text a-text-bold']";
+    private String listaPlegable = "select[name='quantity']"; // Selector Css
+    private String numProductos = "//*[@id=\"quantity_1\"]"; // Selector XPath
+    private String btnAgregarCarro = "//input[@title='Agregar al Carrito']"; // Selector XPath
+    private String mensajeValidacion = "//h1[@class='a-size-medium-plus a-color-base sw-atc-text a-text-bold']"; // Selector XPath
 // 
     //Constructor
     public AmazonSearchPage() {
@@ -51,6 +51,7 @@ public class AmazonSearchPage extends BasePage {
         selecionarElementoListaDes(listaPlegable, numProductos, btnAgregarCarro, 1);
     }
 
+    // Metodo para realizar validaciones al finalizar de agregar cada producto al carrito de compras
     public void validarMensaje(){
         validarTexto(mensajeValidacion);
     }

@@ -1,9 +1,9 @@
 # Desafío 1: Replica Escenario De Prueba Con Selenium Y Cucumber
 
 ## Sobre este Proyecto:
-En este proyecto se automatizo el flujo E2E a la pgina de Amazon, en la cual se busca un producto que esta en un lugar especifico y se trata de agregar al carrito de compras. 
+En este proyecto se automatizo el flujo E2E a la página de Amazon, en la cual se busca un producto que está en un lugar específico y se trata de agregar al carrito de compras. 
 
-Este proyecto esta hecho con Selenium Webdriver Y Cucumber, se siguen las buenas practicas aprendidas en los tutoriales del curso. 
+Este proyecto está hecho con Selenium Webdriver Y Cucumber, se siguen las buenas prácticas aprendidas en los tutoriales del curso. 
 
 ### ¿Qué es Selenium WebDriver?
 [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/) es una colección de APIs que se utilizan para automatizar la interacción con navegadores web. Proporciona una forma de controlar el navegador desde el código, permitiendo simular las acciones de un usuario real, como hacer clic en botones, ingresar texto, navegar entre páginas y más. Es una herramienta fundamental para las pruebas automatizadas de aplicaciones web, asegurando su correcto funcionamiento y la validación de funcionalidades a través de diferentes navegadores.
@@ -35,7 +35,7 @@ Para instalar Gradle buscamos en el navegador Gradle Download, esto nos lleva a 
 Para saber si tenemos instalado Gradle solo utilizamos el comando gradle --version en el CMD de nuestro computador. 
 
 ### Extensiones de VS code
-Para este proyecto se utilizaron alguna extensiones de VS Code que ayudan a . Las extensiones que vamos a descargar son:
+Para este proyecto se utilizaron algunas extensiones de VS Code que ayudan a . Las extensiones que vamos a descargar son:
 - Extension Pack for Java
 - Gradle for Java
 - Gradle Language Support
@@ -51,7 +51,7 @@ Para este proyecto Java con Gradle implementamos algunas dependencias en el arch
 - **WebDriverManager** (Debe ser la de bonigarcia): Se utiliza la versión 5.7.0.
 
 ## A tener en cuenta
-Al realizar la automatizacion de esta pagina, al principio siempre sale un captchat. Para resolver el problema del captcha se implemento un codigo que hace que el programa espere 15 segundos para resolverlo manualmente. Si el Captcha no se resuelve en esos 15 segundos la prueba falla. 
+Al realizar la automatización de esta página, al principio siempre sale un captchat. Para resolver el problema del captcha se implementó un código que hace que el programa espere 15 segundos para resolverlo manualmente. Si el Captcha no se resuelve en esos 15 segundos la prueba falla. 
 
 ```java
 public void espera() {
@@ -96,14 +96,30 @@ RETO_AMAZON/
 ```
 
 ## Ejecución de Pruebas
-Para ejecutar la prueba se utiliza el siguientes comando: 
+Para ejecutar la prueba se utiliza el siguiente comando: 
 - gradle test
 
-Este comando nos ayuda a ejecutar la prueba desde la cualquier terminal que tengamos disponibles en nuestra equipo (bash, CMD, PowerShell. etc) siempre y cuando estemos en el directorio raiz del proyecto.  
+Este comando nos ayuda a ejecutar la prueba desde la cualquier terminal que tengamos disponibles en nuestro equipo (bash, CMD, PowerShell. etc) siempre y cuando estemos en el directorio raiz del proyecto.  
 
 ## Reportes 
-Los reportes de las pruebas hechas en este proyecto los podemos ver en la pagina de [Cucumber Reports](https://reports.cucumber.io) que es: https://reports.cucumber.io. 
-Para ver el reporte que se hizo de la prueba solo debe ir a la URL: 
--  
+Los reportes de las pruebas hechas en este proyecto los podemos ver en la página de [Cucumber Reports](https://reports.cucumber.io) que es: https://reports.cucumber.io.
+En este lugar si quieres subir tus reportes debes iniciar sesión con una cuenta de GitHub, luego se crea una carpeta que nos va a dar un Token como: 
+- CUCUMBER_PUBLISH_TOKEN=some-secret-token
 
+El Token (**some-secret-token**) es único de cada persona, por esta razón no se debe compartir. 
+Luego de tener este token vamos a ir a la terminal de Bash para ingresar el comando de esta forma: 
+- export CUCUMBER_PUBLISH_TOKEN=some-secret-token (**se debe reemplazar el some-secret-token por el token que les dio Cucumber**)
 
+Al ejecutar las pruebas con el comando "**gradle test**" se subirá automáticamente el reporte a nuestro repositorio. 
+Aquí comparto algunos de mis ejecuciones:
+
+**Reporte Donde Todos los Casos Fueron Exitosos**
+-  https://reports.cucumber.io/reports/3d3f765c-7878-4bd9-be3a-70de68f7632a
+
+**Reporte Donde Uno de los Casos Fue Fallido**
+Este caso fue fallido porque al tratar de comprar el producto del escenario 2 (xbox), este no se encuentra con stock disponible para poder comprarlo
+- https://reports.cucumber.io/reports/4a535e51-57ca-429d-95a4-0a998d3d2ade
+
+**Reporte Donde los dos Casos de Prueba Fallan**
+En este caso fallan los 2 escenarios outline porque en el primer escenario (Alexa) no hay stock disponible para personas que no son miembros Prime y el segundo escenario (Xbox) falla porque no se encuentra el Select de la lista para seleccionar el numero esperado de productos (2).
+- https://reports.cucumber.io/reports/137c9e5f-cad2-45e9-906d-163127d9f5b3 

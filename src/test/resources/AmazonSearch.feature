@@ -12,5 +12,5 @@ Feature: Probar la Funcionalidad de Busqueda de Amazon
     Examples: 
         | Producto    |
         | Alexa       |
-        | Playstation |
+        | Xbox        |
         
